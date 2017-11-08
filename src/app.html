@@ -32,7 +32,7 @@
       </tr>
       <tr class="info">
           <template repeat.for="group of groups">
-            <th repeat.for="column of group.columns" class.bind="column.name ? '' : 'spacer'">
+            <th repeat.for="column of group.columns">
               <span>
                 ${column.info}
               </span>
@@ -46,7 +46,7 @@
 
       <tr repeat.for="row of rows">
         <template repeat.for="group of groups">
-          <td repeat.for="column of group.columns" class.bind="column.name ? '' : 'spacer'">
+          <td repeat.for="column of group.columns">
             <span>${column.values[row.ix]}</span>
           </td>
           <td class="spacer" />
