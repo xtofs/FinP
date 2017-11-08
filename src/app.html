@@ -1,0 +1,27 @@
+<template>
+  <h1>${message}</h1>
+
+
+
+  <table style="border-collapse: collapse">
+    <thead>
+      <tr>
+        <th repeat.for="col of cols" style="border: 1px solid lightgray">
+          <span>
+            ${col.name}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="row of rows">
+
+        <td repeat.for="col of cols" style="border: 1px solid lightgray">
+          <span>
+        ${col.values[row.ix]}
+      </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>
