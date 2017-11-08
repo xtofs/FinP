@@ -1,26 +1,56 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./styles.css"></require>
 
 
 
-  <table style="border-collapse: collapse">
+  <table class="calendar">
+    <colgroup repeat.for="group of groups">
+      <col repeat.for="item of group.columns" css="background-color:${group.color}; margin:1em">
+      <col class="spacer">
+    </colgroup>
     <thead>
       <tr>
-        <th repeat.for="col of cols" style="border: 1px solid lightgray">
-          <span>
-            ${col.name}
-          </span>
-        </th>
+        <template repeat.for="group of groups">
+          <th colspan.bind="group.columns.length" class="group">
+            <span>
+                ${group.name}
+              </span>
+          </th>
+          <th class="spacer"></th>
+        </template>
       </tr>
+      <tr class="spacer"></tr>
+      <tr>
+        <template repeat.for="group of groups">
+          <th repeat.for="column of group.columns" class.bind="column.name ? '' : 'spacer'">
+            <span>
+              ${column.name}
+            </span>
+          </th>
+          <th class="spacer"></th>
+        </template>
+      </tr>
+      <tr class="info">
+          <template repeat.for="group of groups">
+            <th repeat.for="column of group.columns" class.bind="column.name ? '' : 'spacer'">
+              <span>
+                ${column.info}
+              </span>
+            </th>
+            <th class="spacer"></th>
+          </template>
+        </tr>
+      <tr class="spacer"></tr>
     </thead>
     <tbody>
-      <tr repeat.for="row of rows">
 
-        <td repeat.for="col of cols" style="border: 1px solid lightgray">
-          <span>
-        ${col.values[row.ix]}
-      </span>
-        </td>
+      <tr repeat.for="row of rows">
+        <template repeat.for="group of groups">
+          <td repeat.for="column of group.columns" class.bind="column.name ? '' : 'spacer'">
+            <span>${column.values[row.ix]}</span>
+          </td>
+          <td class="spacer" />
+        </template>
       </tr>
     </tbody>
   </table>

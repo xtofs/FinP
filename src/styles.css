@@ -1,0 +1,50 @@
+
+
+table.calendar {
+   border-collapse: collapse;
+   empty-cells: hide;
+}
+
+colgroup {
+    column-span: 2;
+    margin: 20px;
+}
+
+col.spacer {
+    width: 10px;
+    background: white;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+tr.info{
+    font-size: smaller;
+}
+
+tr.spacer{
+    height: 5px;
+}
+
+th.group{
+    font-size: large;
+    font-weight: bold;
+}
+
+th,td {
+    /* background-color: red; */
+    border: 1px solid white;
+    padding: 5px;
+}
+
+td {
+    text-align: right;
+}
+
+th.spacer {
+    border: 0px;
+}
+
+
+td.spacer {
+    border: 0px;
+}
