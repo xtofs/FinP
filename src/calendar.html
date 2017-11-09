@@ -3,7 +3,7 @@
     <table class="plan">
         <colgroup repeat.for="group of groups">
             <col repeat.for="column of group.columns" 
-                if.bind="group.visible || column.summary" 
+                if.bind="group.expanded || column.summary" 
                 css="background-color:${group.color};">
             <col class="spacer">
         </colgroup>
@@ -13,7 +13,7 @@
                 <template repeat.for="group of groups">
                     <th colspan.bind="group.colspan" class="group">
                         <span>${group.name}</span>
-                        <span>&nbsp;<img src="img/130-128.png" click.delegate="collapse(group)" width="16px"/></span>
+                        <span>&nbsp;<img src.bind="group.expanded ? 'img/minus.jpg' : 'img/plus.png'" click.delegate="collapse(group)" width="12px"/></span>
                     </th>
                     <th class="spacer"></th>
                 </template>
@@ -22,8 +22,8 @@
             <!-- column header -->
             <tr>
                 <template repeat.for="group of groups">
-                    <th repeat.for="column of group.columns" class.bind="(group.visible || column.summary) ? 'colv' : 'colh'">
-                        <span>${column.name}</span>
+                    <th repeat.for="column of group.columns" class.bind="(group.expanded || column.summary) ? 'colv' : 'colh'">
+                        <span class.bind="column.summary ? 'bold' : 'normal'">${column.name}</span>
                     </th>
                     <th class="spacer"></th>
                 </template>
@@ -31,10 +31,10 @@
             <!-- column info header -->
             <tr class="info">
                 <template repeat.for="group of groups">
-                    <th repeat.for="column of group.columns" class.bind="(group.visible || column.summary) ? 'colv' : 'colh'">
+                    <td repeat.for="column of group.columns" class.bind="(group.expanded || column.summary) ? 'colv' : 'colh'">
                         <span>${column.info}</span>
-                    </th>
-                    <th class="spacer"></th>
+                    </td>
+                    <td class="spacer"></th>
                 </template>
             </tr>
             <tr class="spacer"></tr>
@@ -42,7 +42,7 @@
         <tbody>
             <tr repeat.for="row of rows">
                 <template repeat.for="group of groups">
-                    <td repeat.for="column of group.columns" class.bind="(group.visible || column.summary) ? 'colv' : 'colh'">
+                    <td repeat.for="column of group.columns" class.bind="(group.expanded || column.summary) ? 'colv' : 'colh'">
                         <span>${column.values[row.ix]}</span>
                     </td>
                     <td class="spacer" />

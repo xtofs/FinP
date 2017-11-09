@@ -2,16 +2,11 @@
 
 table.plan {
    border-collapse: collapse;
-   empty-cells: hide;
 }
 
-colgroup {
-    column-span: 2;
-    margin: 20px;
-}
 
 col.spacer {
-    width: 10px;
+    width: 5px;
     background: white;
     border-top: 0px;
     border-bottom: 0px;
@@ -25,30 +20,56 @@ tr.spacer{
     height: 5px;
 }
 
+
+th, td {
+    border: 1px solid #E9E9E9;
+}
+
+th {
+    text-align: center;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+td {
+    text-align: right;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
 th.group{
     font-size: large;
     font-weight: bold;
     text-align: center;
 }
 
-td {
-    text-align: right;
-    padding: 5px;
-}
-
-th,td {
-    /* background-color: red; */
-    border: 1px solid #E9E9E9;
-}
-
 td.colv, th.colv {
+    alt: inherit;
 }
 
 td.colh, th.colh {
     display: none;
 }
 
+/* prevents rouge bottom border on sparer rows */
+thead{
+    border: none;
+} 
 
 th.spacer, td.spacer {
     border: none;
+    background: white;
+}
+
+span.bold {
+    font-weight: 900;
+}
+
+span.normal {
+    font-weight: 100;
 }
