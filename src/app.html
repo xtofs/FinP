@@ -1,12 +1,14 @@
 <template>
   <require from="./styles.css"></require>
+  <require from="./calendar"></require>
+  
   <nav>
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
+          <!-- <li><a href="sass.html">Sass</a></li>
           <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">JavaScript</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li> -->
         </ul>
       </div>
     </nav>
@@ -14,56 +16,7 @@
     <div class="row">
     </div>
     <div class="row">
-      <table class="plan">
-        <colgroup repeat.for="group of groups">
-          <col repeat.for="item of group.columns" css="background-color:${group.color}; margin:1em">
-          <col class="spacer">
-        </colgroup>
-        <thead>
-          <tr>
-            <template repeat.for="group of groups">
-              <th colspan.bind="group.columns.length" class="group">
-                <span>
-                ${group.name}
-              </span>
-              </th>
-              <th class="spacer"></th>
-            </template>
-          </tr>
-          <tr class="spacer"></tr>
-          <tr>
-            <template repeat.for="group of groups">
-              <th repeat.for="column of group.columns" class.bind="column.name ? '' : 'spacer'">
-                <span>
-              ${column.name}
-            </span>
-              </th>
-              <th class="spacer"></th>
-            </template>
-          </tr>
-          <tr class="info">
-            <template repeat.for="group of groups">
-              <th repeat.for="column of group.columns">
-                <span>
-                ${column.info}
-              </span>
-              </th>
-              <th class="spacer"></th>
-            </template>
-          </tr>
-          <tr class="spacer"></tr>
-        </thead>
-        <tbody>
-          <tr repeat.for="row of rows">
-            <template repeat.for="group of groups">
-              <td repeat.for="column of group.columns">
-                <span>${column.values[row.ix]}</span>
-              </td>
-              <td class="spacer" />
-            </template>
-          </tr>
-        </tbody>
-      </table>
+      <calendar></calendar>
     </div>
   </div>
   <footer class="page-footer">     

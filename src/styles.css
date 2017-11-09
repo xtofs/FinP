@@ -28,17 +28,26 @@ tr.spacer{
 th.group{
     font-size: large;
     font-weight: bold;
+    text-align: center;
+}
+
+td {
+    text-align: right;
+    padding: 5px;
 }
 
 th,td {
     /* background-color: red; */
     border: 1px solid #E9E9E9;
-    padding: 5px;
 }
 
-td {
-    text-align: right;
+td.colv, th.colv {
 }
+
+td.colh, th.colh {
+    display: none;
+}
+
 
 th.spacer, td.spacer {
     border: none;

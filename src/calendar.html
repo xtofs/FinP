@@ -1,0 +1,53 @@
+<template>
+   
+    <table class="plan">
+        <colgroup repeat.for="group of groups">
+            <col repeat.for="column of group.columns" 
+                if.bind="group.visible || column.summary" 
+                css="background-color:${group.color};">
+            <col class="spacer">
+        </colgroup>
+        <thead>
+            <!-- group header -->
+            <tr>
+                <template repeat.for="group of groups">
+                    <th colspan.bind="group.colspan" class="group">
+                        <span>${group.name}</span>
+                        <span>&nbsp;<img src="img/130-128.png" click.delegate="collapse(group)" width="16px"/></span>
+                    </th>
+                    <th class="spacer"></th>
+                </template>
+            </tr>
+            <tr class="spacer"></tr>
+            <!-- column header -->
+            <tr>
+                <template repeat.for="group of groups">
+                    <th repeat.for="column of group.columns" class.bind="(group.visible || column.summary) ? 'colv' : 'colh'">
+                        <span>${column.name}</span>
+                    </th>
+                    <th class="spacer"></th>
+                </template>
+            </tr>
+            <!-- column info header -->
+            <tr class="info">
+                <template repeat.for="group of groups">
+                    <th repeat.for="column of group.columns" class.bind="(group.visible || column.summary) ? 'colv' : 'colh'">
+                        <span>${column.info}</span>
+                    </th>
+                    <th class="spacer"></th>
+                </template>
+            </tr>
+            <tr class="spacer"></tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="row of rows">
+                <template repeat.for="group of groups">
+                    <td repeat.for="column of group.columns" class.bind="(group.visible || column.summary) ? 'colv' : 'colh'">
+                        <span>${column.values[row.ix]}</span>
+                    </td>
+                    <td class="spacer" />
+                </template>
+            </tr>
+        </tbody>
+    </table> 
+</template>
