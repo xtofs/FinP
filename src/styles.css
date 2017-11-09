@@ -1,6 +1,6 @@
 
 
-table.calendar {
+table.plan {
    border-collapse: collapse;
    empty-cells: hide;
 }
@@ -40,11 +40,6 @@ td {
     text-align: right;
 }
 
-th.spacer {
-    border: 0px;
-}
-
-
-td.spacer {
-    border: 0px;
+th.spacer, td.spacer {
+    border: none;
 }
