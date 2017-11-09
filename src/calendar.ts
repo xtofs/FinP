@@ -28,7 +28,7 @@ export class Calendar {
             new Column("Total", "", [1, 2, 3], true)
         ]),
         new ColumnGroup("Investments", "#cfffe6", [
-            new Column("SoY", "", [1, 2, 3], true),
+            new Column("BoY", "", [1, 2, 3], true),
             new Column("401k", "", [1, -200, 3]),
             new Column("espp", "", [1, -200, 3]),
             new Column("401k ctl", "", [1, -200, 3]),

@@ -12,8 +12,11 @@
             <tr>
                 <template repeat.for="group of groups">
                     <th colspan.bind="group.colspan" class="group">
-                        <span>${group.name}</span>
-                        <span>&nbsp;<img src.bind="group.expanded ? 'img/minus.jpg' : 'img/plus.png'" click.delegate="collapse(group)" width="12px"/></span>
+                        <span>${group.name}</span> 
+                        <span style="text-align:right">
+                            <i class="material-icons md-18" click.delegate="collapse(group)" >zoom_in</i> 
+                         </span>
+                        <!-- <span>&nbsp;<img src.bind="group.expanded ? 'img/minus.jpg' : 'img/plus.png'" click.delegate="collapse(group)" width="12px"/></span> -->
                     </th>
                     <th class="spacer"></th>
                 </template>
